@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Analyzer | AI Career Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <p class="eyebrow">AI CAREER ASSISTANT</p>
+            <h1>Job Description Analyzer</h1>
+            <p class="subtitle">
+                Understand job requirements, discover important skills,
+                and plan what to learn next.
+            </p>
+        </header>
+
+        <section class="panel">
+            <label for="jobDescription">Paste the job description</label>
+
+            <textarea
+                id="jobDescription"
+                maxlength="15000"
+                placeholder="Paste a Python Developer, AI Engineer, or other job description here..."
+                required
+            ></textarea>
+
+            <div class="input-footer">
+                <span id="charCount">0 / 15000 characters</span>
+                <button id="analyzeButton" type="button">
+                    Analyze Job Description
+                </button>
+            </div>
+
+            <p id="status" class="status" role="status" aria-live="polite"></p>
+        </section>
+
+        <section id="results" class="results" hidden>
+            <div class="results-heading">
+                <p class="eyebrow">ANALYSIS RESULTS</p>
+                <h2 id="jobTitle"></h2>
+                <span id="experienceLevel" class="tag"></span>
+                <p id="jobSummary" class="summary"></p>
+            </div>
+
+            <div class="result-grid">
+                <article class="result-card">
+                    <h3>Required Skills</h3>
+                    <ul id="requiredSkills"></ul>
+                </article>
+
+                <article class="result-card">
+                    <h3>Responsibilities</h3>
+                    <ul id="responsibilities"></ul>
+                </article>
+            </div>
+
+            <article class="result-card priorities-card">
+                <h3>Learning Priorities</h3>
+                <div id="learningPriorities"></div>
+            </article>
+
+            <button id="copyButton" class="secondary-button" type="button">
+                Copy JSON Output
+            </button>
+        </section>
+
+        <footer>
+            <p>Built with Python, Flask, JavaScript and Gemini.</p>
+        </footer>
+    </main>
+</body>
+</html>
